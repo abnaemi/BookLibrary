@@ -3,10 +3,7 @@ package com.example.booklibrary.Controller;
 import com.example.booklibrary.Models.Book;
 import com.example.booklibrary.Repository.BookOrder;
 import com.example.booklibrary.Service.LibraryService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,12 @@ public final class LibraryController {
     @GetMapping("/books/{id}")
     public Book getBookfromISBN(@PathVariable String id) {
         return libraryService.getBookOrder().getBook(id);
+    }
+
+    @PostMapping("/books")
+    public Book addBook(@RequestBody Book book) {
+
+        return libraryService.getBookOrder().addBook(book);
     }
 
 }
