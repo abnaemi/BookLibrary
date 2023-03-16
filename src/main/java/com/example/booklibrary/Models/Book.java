@@ -1,14 +1,21 @@
-package src.main.java.com.example.booklibrary.Models;
+package com.example.booklibrary.Models;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 public class Book {
     String ISBN;
     String Title;
     String Autor;
 
-    public Book ( String isbn, String title, String autor){
+    BookType type;
+
+    public Book ( String isbn, String title, String autor, BookType bType){
         this.ISBN = isbn;
         this.Title = title;
         this.Autor = autor;
+        this.type = bType;
     }
 
     public String getISBN() {
@@ -21,6 +28,9 @@ public class Book {
 
     public String getAutor() {
         return Autor;
+    }
+    public BookType getType() {
+        return type;
     }
 
     @Override
